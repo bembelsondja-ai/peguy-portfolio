@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="portfolio.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Ajout rapide pour l'image du projet et la section contact */
         .project-image-placeholder img {
             width: 100%;
             height: 100%;
@@ -27,6 +26,36 @@
         .contact-section h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff;}
         .contact-section p { color: #a0aec0; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;}
         .contact-buttons { display: flex; justify-content: center; gap: 1rem; }
+
+        /* BOUTON FR/EN */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2rem;
+            padding: 4px 6px;
+            margin-left: 1.5rem;
+        }
+        .lang-btn {
+            padding: 4px 12px;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: #a0aec0;
+            transition: all 0.2s ease;
+        }
+        .lang-btn.active {
+            background: #60a5fa;
+            color: #000;
+        }
+        .lang-btn:hover:not(.active) {
+            color: #fff;
+        }
     </style>
 </head>
 <body class="portfolio-mode">
@@ -35,10 +64,17 @@
     <nav class="portfolio-nav">
         <div class="nav-content">
             <a href="#" class="portfolio-logo">Peguy<span>.</span>Digital</a>
-            <div class="portfolio-nav-links">
-                <a href="#projekts">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+            <div style="display:flex; align-items:center;">
+                <div class="portfolio-nav-links">
+                    <a href="#projekts" data-en="Projects" data-fr="Projets">Projects</a>
+                    <a href="#skills" data-en="Skills" data-fr="Compétences">Skills</a>
+                    <a href="#contact" data-en="Contact" data-fr="Contact">Contact</a>
+                </div>
+                <!-- Bouton FR/EN -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+                    <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -48,34 +84,33 @@
         <!-- Hero Section -->
         <section class="portfolio-hero">
             <div class="hero-content">
-                <div class="hero-badge">🚀 Available for new projects</div>
-                <h1>Web solutions that drive your business.</h1>
-                <p>I am <strong>Peguy</strong>, a Front-End Web Developer & Python Automation Specialist. I craft premium digital experiences and intelligent systems designed to save you time and convert visitors into clients.</p>
-                <a href="#projekts" class="portfolio-cta">View My Work →</a>
+                <div class="hero-badge" data-en="🚀 Available for new projects" data-fr="🚀 Disponible pour de nouveaux projets">🚀 Disponible pour de nouveaux projets</div>
+                <h1 data-en="Web solutions that drive your business." data-fr="Des solutions web qui propulsent votre business.">Des solutions web qui propulsent votre business.</h1>
+                <p data-en="I am <strong>Peguy</strong>, a Front-End Web Developer & Python Automation Specialist. I craft premium digital experiences and intelligent systems designed to save you time and convert visitors into clients." data-fr="Je suis <strong>Peguy</strong>, Développeur Web Front-End & Spécialiste en Automatisation Python. Je crée des expériences digitales premium et des systèmes intelligents conçus pour vous faire gagner du temps et convertir vos visiteurs en clients.">Je suis <strong>Peguy</strong>, Développeur Web Front-End & Spécialiste en Automatisation Python. Je crée des expériences digitales premium et des systèmes intelligents conçus pour vous faire gagner du temps et convertir vos visiteurs en clients.</p>
+                <a href="#projekts" class="portfolio-cta" data-en="View My Work →" data-fr="Voir mes réalisations →">Voir mes réalisations →</a>
             </div>
         </section>
 
         <!-- Projects Section -->
         <section id="projekts" class="portfolio-section">
-            <h2 class="section-title">Featured <span>Work</span></h2>
+            <h2 class="section-title" data-en="Featured <span>Work</span>" data-fr="Mes <span>Réalisations</span>">Mes <span>Réalisations</span></h2>
             
             <div class="projects-grid">
                 
                 <!-- Project 1: The Bakery -->
                 <article class="project-card">
                     <div class="project-image-placeholder">
-                        <!-- METTRE TON IMAGE ICI : enregistre une capture d'ecran sous le nom "screenshot.png" dans ton dossier -->
                         <img src="screenshot.png" alt="Modern Local Bakery Website Preview">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
                             <span class="project-tag">Web Design</span>
                             <span class="project-tag">HTML/CSS/JS</span>
-                            <span class="project-tag">Local Business</span>
+                            <span class="project-tag" data-en="Local Business" data-fr="Commerce Local">Commerce Local</span>
                         </div>
-                        <h3 class="project-title">Custom Bakery Website</h3>
-                        <p class="project-desc">A premium digital identity crafted for a local bakery. Features a responsive modern design, interactive product displays, and a seamless user experience optimized for high conversion.</p>
-                        <a href="https://french-bakery-premium.netlify.app/" class="project-link" target="_blank">Live Preview →</a>
+                        <h3 class="project-title" data-en="Custom Bakery Website" data-fr="Site Web pour Boulangerie">Site Web pour Boulangerie</h3>
+                        <p class="project-desc" data-en="A premium digital identity crafted for a local bakery. Features a responsive modern design, interactive product displays, and a seamless user experience optimized for high conversion." data-fr="Une identité digitale premium créée pour une boulangerie locale. Design moderne et responsive, présentation interactive des produits, et une expérience utilisateur optimisée pour convertir les visiteurs en clients.">Une identité digitale premium créée pour une boulangerie locale. Design moderne et responsive, présentation interactive des produits, et une expérience utilisateur optimisée pour convertir les visiteurs en clients.</p>
+                        <a href="https://french-bakery-premium.netlify.app/" class="project-link" target="_blank" data-en="Live Preview →" data-fr="Voir le site →">Voir le site →</a>
                     </div>
                 </article>
 
@@ -93,9 +128,9 @@
                             <span class="project-tag">Data Parsing</span>
                             <span class="project-tag">Automation</span>
                         </div>
-                        <h3 class="project-title">B2B Lead Generation Scraper</h3>
-                        <p class="project-desc">A custom Python command-line utility built for intelligent B2B lead scraping. It autonomously monitors RSS feeds across multiple platforms and filters complex data to alert on business opportunities.</p>
-                        <a href="#" class="project-link" style="color:#94a3b8; cursor: default;">Internal Tool (Script)</a>
+                        <h3 class="project-title" data-en="B2B Lead Generation Scraper" data-fr="Scraper de Leads B2B">Scraper de Leads B2B</h3>
+                        <p class="project-desc" data-en="A custom Python command-line utility built for intelligent B2B lead scraping. It autonomously monitors RSS feeds across multiple platforms and filters complex data to alert on business opportunities." data-fr="Un outil Python sur mesure pour la génération intelligente de leads B2B. Il surveille automatiquement des flux RSS sur plusieurs plateformes et filtre les données pour détecter des opportunités business.">Un outil Python sur mesure pour la génération intelligente de leads B2B. Il surveille automatiquement des flux RSS sur plusieurs plateformes et filtre les données pour détecter des opportunités business.</p>
+                        <a href="#" class="project-link" style="color:#94a3b8; cursor: default;" data-en="Internal Tool (Script)" data-fr="Outil Interne (Script)">Outil Interne (Script)</a>
                     </div>
                 </article>
 
@@ -104,14 +139,14 @@
 
         <!-- Skills Section -->
         <section id="skills" class="portfolio-section">
-            <h2 class="section-title">Core <span>Technologies</span></h2>
+            <h2 class="section-title" data-en="Core <span>Technologies</span>" data-fr="Mes <span>Compétences</span>">Mes <span>Compétences</span></h2>
             <div class="skills-container">
                 <div class="skill-pill">HTML5 & Modern CSS3</div>
                 <div class="skill-pill">JavaScript ES6</div>
-                <div class="skill-pill">Python & Automation</div>
-                <div class="skill-pill">RSS Data Scraping</div>
-                <div class="skill-pill">Git Version Control</div>
-                <div class="skill-pill">Responsive UI/UX</div>
+                <div class="skill-pill" data-en="Python & Automation" data-fr="Python & Automatisation">Python & Automatisation</div>
+                <div class="skill-pill" data-en="RSS Data Scraping" data-fr="Scraping de Données RSS">Scraping de Données RSS</div>
+                <div class="skill-pill" data-en="Git Version Control" data-fr="Git & Versioning">Git & Versioning</div>
+                <div class="skill-pill" data-en="Responsive UI/UX" data-fr="Design Responsive UI/UX">Design Responsive UI/UX</div>
             </div>
         </section>
 
@@ -119,15 +154,39 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-        <h2>Let's build something <span>together</span></h2>
-        <p>Whether you need a brand new website or want to automate your workflow, I'm ready to help bring your vision to life.</p>
+        <h2 data-en="Let's build something <span>together</span>" data-fr="Construisons quelque chose <span>ensemble</span>">Construisons quelque chose <span>ensemble</span></h2>
+        <p data-en="Whether you need a brand new website or want to automate your workflow, I'm ready to help bring your vision to life." data-fr="Que vous ayez besoin d'un nouveau site web ou d'automatiser votre activité, je suis prêt à donner vie à votre vision.">Que vous ayez besoin d'un nouveau site web ou d'automatiser votre activité, je suis prêt à donner vie à votre vision.</p>
         <div class="contact-buttons">
-            <!-- Si tu veux, on peut rajouter un vrai lien comme "mailto:tonmail@gmail.com" -->
-            <a href="mailto:contact@peguydigital.com" class="portfolio-cta">Email Me</a>
-            <!-- Lien facultatif pour Reddit, à remplacer par le lien de ton profil Reddit -->
-            <a href="https://www.reddit.com/user/EuphoricRevolution22" target="_blank" class="portfolio-cta" style="background: rgba(255,255,255,0.1); color: #fff;">Reddit DM</a>
+            <a href="mailto:antoinesondja19@gmail.com" class="portfolio-cta" data-en="Email Me" data-fr="M'écrire un email">M'écrire un email</a>
+            <a href="https://www.reddit.com/user/EuphoricRevolution22" target="_blank" class="portfolio-cta" style="background: rgba(255,255,255,0.1); color: #fff;" data-en="Reddit DM" data-fr="Reddit DM">Reddit DM</a>
         </div>
     </section>
+
+    <script>
+        // Langue par défaut : français
+        let currentLang = 'fr';
+
+        function setLang(lang) {
+            currentLang = lang;
+
+            // Mettre à jour les boutons
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+
+            // Mettre à jour tous les éléments avec data-en / data-fr
+            document.querySelectorAll('[data-en][data-fr]').forEach(el => {
+                el.innerHTML = el.getAttribute('data-' + lang);
+            });
+
+            // Mettre à jour le titre de la page
+            document.title = lang === 'fr'
+                ? 'Peguy Digital | Développeur Web & Automatisation'
+                : 'Peguy Digital | Web Developer & Automation';
+        }
+
+        // Appliquer le français au chargement
+        setLang('fr');
+    </script>
 
 </body>
 </html>
